@@ -5,6 +5,10 @@ let teamOneGoalSpan = document.querySelector("#team-numgoals");
 teamOneButton.addEventListener("click", function () {
   let newShotSpan = Number(teamOneShotSpan.innerHTML) + 1;
   teamOneShotSpan.innerHTML = newShotSpan;
+  if (Math.random() * 100 < 50) {
+    let newGoalSpan = Number(teamOneGoalSpan.innerHTML) + 1;
+    teamOneGoalSpan.innerHTML = newGoalSpan;
+  }
 });
 
 let teamTwoButton = document.querySelector("#teamtwo-shoot-button");
@@ -16,10 +20,12 @@ teamTwoButton.addEventListener("click", function () {
   teamTwoShotSpan.innerHTML = twoShotspan;
 });
 
-let resetButton = document.querySelector("reset-button");
+let resetButton = document.querySelector("#reset-button");
 let numResetSpan = document.querySelector("#num-resets");
 
 resetButton.addEventListener("click", function () {
   let newResetSpan = Number(numResetSpan.innerHTML) + 1;
   numResetSpan.innerHTML = newResetSpan;
+  teamTwoShotSpan.innerHTML = 0;
+  teamOneShotSpan.innerHTML = 0;
 });
